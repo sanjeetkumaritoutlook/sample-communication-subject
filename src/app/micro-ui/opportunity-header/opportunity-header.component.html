@@ -1,27 +1,43 @@
 <h3> If using TypeScript 3.x or 4.x, and it's not recognizing the optional chaining (?.) inside the FormGroup. 
     Some older TypeScript versions may not support ?. within array destructuring in Angular forms.</h3>
-<form [formGroup]="opportunityForm" (ngSubmit)="submitForm()">
+    <form [formGroup]="opportunityForm" (ngSubmit)="submitForm()">
+        <div class="form-container">
+          <div class="form-group">
+            <label>First Name:</label>
+            <input formControlName="firstName" placeholder="Enter First Name" />
+          </div>
       
-    <label>First Name:</label>
-    <input formControlName="firstName" placeholder="Enter First Name" />
-    
-    <label>Last Name:</label>
-    <input formControlName="lastName" placeholder="Enter Last Name" />
-    
-    <label>Date of Birth:</label>
-    <input formControlName="dob" type="date" />
-    
-    <label>City:</label>
-    <input formControlName="city" placeholder="Enter City" />
-    
-    <label>Country:</label>
-    <input formControlName="country" placeholder="Enter Country" />
-    
-    <label>Nationality:</label>
-    <select formControlName="nationality">
-      <option value="">Select Nationality</option>
-      <option *ngFor="let nation of nationalities" [value]="nation">{{ nation }}</option>
-    </select>
-
-    <button type="submit" [disabled]="opportunityForm.invalid">Submit</button>
-  </form>
+          <div class="form-group">
+            <label>Last Name:</label>
+            <input formControlName="lastName" placeholder="Enter Last Name" />
+          </div>
+      
+          <div class="form-group">
+            <label>Date of Birth:</label>
+            <input formControlName="dob" type="date" />
+          </div>
+      
+          <div class="form-group">
+            <label>City:</label>
+            <input formControlName="city" placeholder="Enter City" />
+          </div>
+      
+          <div class="form-group">
+            <label>Country:</label>
+            <input formControlName="country" placeholder="Enter Country" />
+          </div>
+      
+          <div class="form-group">
+            <label>Nationality:</label>
+            <select formControlName="nationality">
+              <option value="">Select Nationality</option>
+              <option *ngFor="let nation of nationalities" [value]="nation">{{ nation }}</option>
+            </select>
+          </div>
+      
+          <div class="form-actions">
+            <button type="submit" [disabled]="opportunityForm.invalid">Submit</button>
+          </div>
+        </div>
+      </form>
+      
