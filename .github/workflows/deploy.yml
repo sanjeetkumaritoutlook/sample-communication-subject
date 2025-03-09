@@ -54,7 +54,7 @@ jobs:
     
     # Upload concatenated web component separately
       - name: Upload concatenated file as an artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
           name: web-component
           path: ./elements/web-component.js
