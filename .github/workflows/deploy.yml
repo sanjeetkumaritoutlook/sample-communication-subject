@@ -58,10 +58,12 @@ jobs:
         with:
           name: web-component
           path: ./elements/web-component.js
-          
-     # Directly load via URL from GitHub Pages
+
+     # Directly load via URL from GitHub Pages (act like AWS S3 bucket)
       - name: Move Web Component for GitHub Pages
-        run: mv elements/web-component.js dist/sample-communication-subject/elements/
+        run: |
+           mkdir -p dist/sample-communication-subject/elements
+           mv elements/web-component.js dist/sample-communication-subject/elements/
       
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
