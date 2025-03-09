@@ -6,6 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## microui (web-component)
+
+in local, manually: node package-web-components.js
+
+automatically runs after build in server -> postbuild
+
+dir dist\sample-communication-subject\*.js
+
+outputHashing : none in angular.json to remove hash from generate dist files
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
