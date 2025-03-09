@@ -23,12 +23,21 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule implements DoBootstrap {
-  constructor(private injector: Injector) {}
+export class AppModule{
 
+  constructor(private injector: Injector) {
+    const elements: any[] = [[OpportunityHeaderComponent, 'microui-form']];
+
+    for (const [component, name] of elements) {
+      const htmlElement = createCustomElement(component, {
+        injector: this.injector,
+      });
+      customElements.define(name, htmlElement);
+    }
+  }
   ngDoBootstrap() {
-    const formOneElement = createCustomElement(OpportunityHeaderComponent, { injector: this.injector });
-    customElements.define('microui-form', formOneElement);
+    //const formOneElement = createCustomElement(OpportunityHeaderComponent, { injector: this.injector });
+    //customElements.define('microui-form', formOneElement);
 
     // const formTwoElement = createCustomElement(DetailComponent, { injector: this.injector });
     // customElements.define('second-component', formTwoElement);
