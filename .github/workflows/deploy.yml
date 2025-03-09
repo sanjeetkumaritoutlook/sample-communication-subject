@@ -58,7 +58,11 @@ jobs:
         with:
           name: web-component
           path: ./elements/web-component.js
-
+          
+     # Directly load via URL from GitHub Pages
+      - name: Move Web Component for GitHub Pages
+        run: mv elements/web-component.js dist/sample-communication-subject/elements/
+      
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         env:
