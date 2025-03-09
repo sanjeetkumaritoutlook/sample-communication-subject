@@ -64,6 +64,9 @@ jobs:
         run: |
            mkdir -p dist/sample-communication-subject/elements
            mv elements/web-component.js dist/sample-communication-subject/elements/
+           
+      - name: List deployed files
+        run: ls -R dist/sample-communication-subject      
       
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
