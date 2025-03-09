@@ -24,6 +24,13 @@ outputHashing : none in angular.json to remove hash from generate dist files
 
 this  web component is also hosted in Github pages via dist (act like AWS S3 bucket)
 
+## Force a Full GitHub Pages Deployment
+
+GitHub Pages by default uses Jekyll, which ignores files in folders starting with _ and sometimes messes up file serving.
+Adding .nojekyll ensures that all files (especially JS files) are served properly.
+
+After adding this step:
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

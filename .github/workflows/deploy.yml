@@ -63,6 +63,9 @@ jobs:
       - name: Move Web Component to Root
         run: |
            mv ./elements/web-component.js ./dist/sample-communication-subject/web-component.js
+      
+      - name: Disable Jekyll for GitHub Pages
+        run: touch ./dist/sample-communication-subject/.nojekyll
 
       - name: List deployed files
         run: ls -R ./dist/sample-communication-subject      
