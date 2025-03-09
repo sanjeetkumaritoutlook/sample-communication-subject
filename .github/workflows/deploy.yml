@@ -60,10 +60,9 @@ jobs:
           path: ./elements/web-component.js
 
      # Directly load via URL from GitHub Pages (act like AWS S3 bucket)
-      - name: Move Web Component for GitHub Pages
+      - name: Move Web Component to Root
         run: |
-           mkdir -p ./dist/sample-communication-subject/elements
-           mv ./elements/web-component.js ./dist/sample-communication-subject/elements/
+           mv ./elements/web-component.js ./dist/sample-communication-subject/web-component.js
 
       - name: List deployed files
         run: ls -R ./dist/sample-communication-subject      
