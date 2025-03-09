@@ -54,7 +54,7 @@ jobs:
     
     # Upload concatenated web component separately
       - name: Upload concatenated file as an artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: web-component
           path: ./elements/web-component.js
@@ -63,5 +63,5 @@ jobs:
         uses: actions/deploy-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/sample-communication-subject
+         
       
