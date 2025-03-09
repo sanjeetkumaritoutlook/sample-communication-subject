@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-opportunity-header',
@@ -13,7 +14,7 @@ export class OpportunityHeaderComponent implements OnInit {
   opportunityForm!: FormGroup;
   nationalities: string[] = ['Indian', 'American', 'Canadian', 'British', 'Australian'];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private http: HttpClient) {}
 
   ngOnInit() {
     this.opportunityForm = this.fb.group({
@@ -30,6 +31,17 @@ export class OpportunityHeaderComponent implements OnInit {
     if (this.opportunityForm.valid) {
       console.log('Micro UI Form Data:', this.opportunityForm.value);
       this.formSubmitted.emit(this.opportunityForm.value);
+      //POST API call to DB to save data
+      this.http.post('https://jsonplaceholder.typicode.com/posts', this.opportunityForm.value)
+        .subscribe(
+          (response) => {
+            console.log('API Response:', response);
+            this.formSubmitted.emit(response); // Emit API response
+          },
+          (error) => {
+            console.error('API Error:', error);
+          }
+        );
     }
   }
 }

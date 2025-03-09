@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,Injector, DoBootstrap } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { DetailComponent } from './components/detail/detail.component';
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
