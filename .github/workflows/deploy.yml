@@ -41,13 +41,24 @@ jobs:
    #GitHub Pages doesn't support fallback routing for Single Page Applications (SPA).
       - name: Build Angular app
         run: npm run build -- --base-href=/sample-communication-subject/
+     
+      - name: Concatenate Web Components
+        run: node package-web-components.js  # Run your script
 
+    # ✅ Upload full Angular build (for GitHub Pages)
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ./dist/sample-communication-subject
     
+    # ✅ Upload concatenated web component separately
+      - name: Upload concatenated file as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-component
+          path: ./elements/web-component.js
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         env:
