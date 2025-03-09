@@ -45,14 +45,14 @@ jobs:
       - name: Concatenate Web Components
         run: node package-web-components.js  # Run your script
 
-    # ✅ Upload full Angular build (for GitHub Pages)
+    # Upload full Angular build (for GitHub Pages)
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ./dist/sample-communication-subject
     
-    # ✅ Upload concatenated web component separately
+    # Upload concatenated web component separately
       - name: Upload concatenated file as an artifact
         uses: actions/upload-artifact@v3
         with:
