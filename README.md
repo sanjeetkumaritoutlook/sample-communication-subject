@@ -12,6 +12,12 @@ in local, manually: node package-web-components.js
 
 automatically runs after build in server -> postbuild
 
+https://gist.github.com/coryhouse/b7ff5e6d1e41b762c35b
+
+ng build --configuration production
+
+(in windows local) set NODE_OPTIONS=--openssl-legacy-provider
+
 dir dist\sample-communication-subject\*.js
 
 outputHashing : none in angular.json to remove hash from generate dist files
